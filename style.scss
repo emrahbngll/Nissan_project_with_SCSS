@@ -1,0 +1,267 @@
+@import 'variables';
+@import 'modules';
+@import 'design';
+
+@mixin mobile {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 801px) and (max-width: 1400px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $background;
+  font-family: $font-main;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  color: $text-color;
+  padding: 20px 40px;
+
+  nav {
+    display: flex;
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+      padding: 0 10px;
+      transition: all 0.3s;
+      white-space: nowrap;
+
+      &:hover {
+        color: $red;
+        text-shadow: 2px 2px 10px $red;
+        transition: all 0.4s;
+      }
+    }
+  }
+
+  #nav-left {
+    img {
+      width: 50px;
+    }
+
+    a {
+      border-right: 1px solid;
+    }
+  }
+
+  #nav-right {
+    font-size: 15px;
+    color: gray;
+  }
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 50px 100px;
+  background: linear-gradient(rgb(215, 215, 215) 40%, $background 40%);
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  @include laptop {
+    flex-direction: column;
+    padding: 50px;
+  }
+
+  .slogan {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+
+    h1 {
+      @extend %heading;
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 22px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    img {
+      max-width: 300px;
+      mix-blend-mode: darken;
+    }
+
+    h2 {
+      @extend %heading;
+      font-size: 25px;
+    }
+
+    button {
+      background-color: $red;
+      padding: 10px 50px;
+      border: none;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 3px;
+      transition: background-color 0.4s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(122, 0, 0);
+        transition: all 0.5s;
+      }
+    }
+  }
+
+  .images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    @include mobile {
+      margin-top: 100px;
+    }
+
+    &-main {
+      max-width: 900px;
+      transition: translate 0.4s;
+
+      &:hover {
+        translate: -200px 100px;
+        transition: all 0.4s;
+      }
+
+      @include mobile {
+        width: 300px;
+      }
+    }
+
+    &-second {
+      max-width: 400px;
+
+      mix-blend-mode: darken;
+    }
+
+    p {
+      max-width: 500px;
+      text-align: center;
+    }
+  }
+}
+
+#interior {
+  @extend %design;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.5) 10%, black),
+    url(/images/interior.jpg);
+}
+
+#exterior {
+  @extend %design;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.5) 10%, black),
+    url(/images/exterior-4.jpg);
+}
+
+//arabalar alanı
+#cars-sec {
+  margin: 100px 30px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  h1 {
+    @extend %heading;
+    text-align: center;
+
+    span {
+      color: $red;
+      text-shadow: 2px 2px 30px $red;
+    }
+  }
+
+  .cars {
+    display: flex;
+    gap: 50px;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    @include laptop {
+      flex-direction: column;
+    }
+
+    &-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 400px;
+
+      img {
+        width: 100%;
+        mix-blend-mode: darken;
+      }
+
+      h3 {
+        @extend %heading;
+        font-weight: 900 !important;
+      }
+    }
+  }
+
+  button {
+    margin: 50px 0;
+    padding: 20px 40px;
+    background-color: $blue;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    &:hover {
+      background-color: rgb(0, 151, 151);
+      transition: all 0.4s;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  background-color: black;
+  gap: 50px;
+  padding: 70px;
+  align-items: center;
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  img {
+    max-width: 150px;
+    max-height: 100px;
+  }
+
+  p {
+    color: white;
+  }
+}

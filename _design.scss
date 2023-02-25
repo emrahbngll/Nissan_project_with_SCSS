@@ -1,0 +1,68 @@
+@import 'modules';
+
+.container {
+    img {
+        max-width: 1000px;
+    }
+
+    h6 {
+        @extend %heading;
+        font-size: 25px;
+    }
+
+    .menu {
+        background-color: black;
+        color: white;
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &-items {
+            display: flex;
+            gap: 50px;
+        }
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    h1 {
+        @extend %heading;
+
+        margin-top: 50px;
+    }
+
+    p {
+        margin-top: 10px;
+    }
+
+    .label {
+        margin-top: 100px;
+        color: gray;
+        display: block;
+    }
+
+    select {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid;
+        width: 500px;
+        font-size: 20px;
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .options {
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+
+        .option {
+            width: 100px;
+            display: flex;
+            white-space: nowrap;
+        }
+    }
+}
